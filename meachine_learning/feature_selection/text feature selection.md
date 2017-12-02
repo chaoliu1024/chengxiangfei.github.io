@@ -21,4 +21,4 @@
 互信息（Mutual Information, MI）度量两个事件集合之间的相关性。平均互信息的定义如下
 $$ I(X;Y) = \sum_{y\inY}\sum_{x\inX}p(x,y)log(frac{p(x,y)}{p(x)p(y)}) $$
 
-<img src="http://www.forkosh.com/mathtex.cgi? \Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}">
+![](img src="http://www.forkosh.com/mathtex.cgi? \Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}")
