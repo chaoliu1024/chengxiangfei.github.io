@@ -19,7 +19,7 @@
 
 互信息（Mutual Information, MI）度量两个事件集合之间的相关性。平均互信息的定义如下
 
-![](http://latex.codecogs.com/gif.latex?I(X;Y)\=\sum_{y\in Y}\sum_{x\in X}p(x,y)log\frac{p\(x,y\)}{p\(x\)p\(y\)})
+![](http://latex.codecogs.com/gif.latex?I(X;Y)=\sum_{y\in{Y}}\sum_{x\in{X}}p(x,y)log\frac{p\(x,y\)}{p\(x\)p\(y\)})
 
 在文本特征选择中，我们可以通过上述公式计算类别c和特征t的互信息，以此来度量一个特征的出现或缺失对做出正确的分类决策的贡献大小。
 假设`U`是一个代表 ![](http://latex.codecogs.com/gif.latex?e_t=1)（包含特征t的文档）和 ![](http://latex.codecogs.com/gif.latex?e_t=0)
