@@ -1,3 +1,5 @@
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
 ## 文本特征选择
 
 文本的特征选择（feature selection）是从训练集所出现的所有词（terms）中选出一个子集，只用这个子集作为文本分类
@@ -18,3 +20,4 @@
 
 互信息（Mutual Information, MI）度量两个事件集合之间的相关性。平均互信息的定义如下
 $$ I(X;Y) = \sum_{y\inY}\sum_{x\inX}p(x,y)log(frac{p(x,y)}{p(x)p(y)}) $$
+
