@@ -68,4 +68,30 @@
 
 卡方统计的一个缺点是会放大稀有词的显著性。假如有一个词在所有的特征中仅仅出现了2次，这2次都在类别c中，这个词就是统计显著的，但出现次数这么少的词对于分类是没有什么帮助的。
 
+#### 信息增益
 
+信息熵（information entropy）度量样板集合纯度最常用的一个指标。假定当前样本集合D中第k个类别所占的比例为![](http://latex.codecogs.com/gif.latex?p_k)(k=1,2,...,|Y|),
+则样本D的信息熵定义为：
+
+![](http://latex.codecogs.com/gif.latex?Ent(D)=-\sum_{k=1}^{|Y|}P_klog_2P_k)
+
+Ent(D)的值越小，D的纯度越高。
+
+假如离散的属性a可能的取值为 ![](http://latex.codecogs.com/gif.latex?\\{a^1,a^2,...,a^v\\})，现在使用a把样本D划分为v个子集，其中第v个子集包含了D中所有在特征a上取值为
+![](http://latex.codecogs.com/gif.latex?a^v)的样本，记为![](http://latex.codecogs.com/gif.latex?D^v)，我们可以根据上面信息熵的定义计算出![](http://latex.codecogs.com/gif.latex?D^v)
+的信息熵。再考虑到不同的样本子集包含的样本数不同，给每个子集一个权重![](http://latex.codecogs.com/gif.latex?|D^v|/|D|)（![](http://latex.codecogs.com/gif.latex?|D|)为样本D的个数），
+即样本数越多的子集影响越大，可以计算出属性a对样本D的进行划分所得到的信息增益（information gain）
+
+![](http://latex.codecogs.com/gif.latex?Gain(D,a)=Ent(D)-\sum_{v=1}^v\frac{|D^v|}{D}Ent(D^v))
+
+一般而言，信息增益越大，则用a进行划分得到的纯度提升越大。因此，一般情况下，信息增益被用来做决策树的划分属性选择。
+
+在文本特征选择中，特征t只有出现或者不出现{0,1}两种情况。因此，信息增益
+
+![](http://latex.codecogs.com/gif.latex?Gain(D,t)=Ent(D)-\frac{|D^0|}{|D|}Ent(D^0)-\frac{|D^1|}{|D|}Ent(D^1))
+
+此时，信息增益度量的是一个特征t对整个分类的贡献，不能度量对某个类别的贡献。因此，信息增益只能做全局的特征选择，
+即所有的类都共用一套特征集合，不能针对某个类别选择本类别特有的特征集合。
+
+
+上述的特征选择方法各有优缺点，比较多的实验证明卡方统计会有比较好的效果。但具体实验时是不是要做特征选择，选择那种方法，特征集的大小取多少，还是要靠实验对比来决定。
